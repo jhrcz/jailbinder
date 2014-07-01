@@ -1,0 +1,12 @@
+#
+# jailbinder config file
+#
+
+# adresare s projektama co zpristupnit
+P=/var/www/testprojdir
+
+# adresare ke schovani
+F=/etc/apache2
+
+# home prefix
+H=/home/JAILED
