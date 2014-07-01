@@ -24,30 +24,30 @@ up()
 						# rw mount
 						tmp)
 							mkdir -p $D/$i
-							mount -o rbind /$i $D/$i
+							mount -o bind,nodev /$i $D/$i
 							;;
 						# ro mount
 						*)
 							mkdir -p $D/$i
-							mount -o rbind /$i $D/$i
-							mount -o remount,ro,rbind $D/$i
+							mount -o bind,nodev /$i $D/$i
+							mount -o remount,ro,bind,nodev $D/$i
 							;;
 					esac
 				done
 
 				[ -f $D/home/$U/.profile ] || \
 				mkdir -p $D/home/$U
-				mount -o rbind $H/$U $D/home/$U
+				mount -o bind,nodev $H/$U $D/home/$U
 
 				for i in $P
 				do
 					mkdir -p $D/DATA/$i
-					mount -o rbind $i $D/DATA/$i
+					mount -o bind,nodev $i $D/DATA/$i
 				done
 
 				for i in $F
 				do
-					mount -o bind $D/EMPTY $D$F
+					mount -o bind,nodev $D/EMPTY $D$F
 				done
 }
 
